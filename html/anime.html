@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/icon.jpg" sizes="16x16">
+    <title>番剧观测站</title>
+    <style>
+
+        body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:scroll;
+
+        }
+
+        @media screen and (min-width: 1320px) {
+            body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:hidden;
+            }
+        }
+
+        body {
+            background-color: #e0e0e0;
+            height: 100%;
+            background-image: url("../img/anime.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover ;
+        }
+
+        .wrapper {
+            display: table;
+            width: 100%;
+            min-height: 100%;
+        }
+        #top {
+            padding-top: 6rem;
+        }
+
+
+
+        /* 顶部导航栏 */
+        .header-wrapper {
+            display: flex;
+            justify-content:space-between;
+            width: 100vw;
+            position: fixed;
+        }
+        /* 左上的标题 */
+        .ltitle {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 20vw;
+            
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #ffdf78a5;
+            width: 13vw;
+            border-radius: 10px;
+        }
+        #title_icon {
+            display: flex;
+            align-items: center;
+            width: 3vw;
+            height: 3vw;
+            border-radius: 30px;
+        }
+        /* bing搜索框 */
+        .bingsearch {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            width: 40vw;
+        }
+        #search_input {
+            background-color: #ffdf78a5;
+            border: none;
+            border-radius: 10px;
+            width: 30vw;
+            height: 2rem;
+        }
+        /* 搜索按钮 */
+        #search_submit {
+            color: #000000;
+            background-color: #ffdf78a5;
+            border: none;
+            width: 2rem;
+            height: 2rem;
+            transition-duration: 0.2s;
+            border-radius: 10px;
+        }
+        #search_submit:hover {
+            background-color: #cbab42a5;
+        }
+
+        /* 右上的导航栏 */
+        .rtitle {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            list-style-type: none;
+            width: 40vw;
+            margin: none;
+            background-color: #ffdf78a5;
+            border-radius: 7px;
+            margin-right: 2.5rem;
+        }
+        /* 右上的导航栏的选项 */
+        .title_option {
+            padding: 1rem;
+            text-align: center;
+            transition: flex;
+            margin: none;
+            transition-duration: 0.5s;
+            flex-grow: 1
+        }   
+        /* 右上的导航栏的选项鼠标悬停时 */
+        .title_option:hover {
+            cursor: pointer;
+            border-bottom: solid 3px #ffc457;
+            flex-grow: 2;
+        }
+
+
+        /* 中部内容 */
+        .content-wrapper {
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            height: 100%;
+        }
+
+        .container {
+            min-height: 20vh;
+            width: 79vw;
+            min-width: 1100px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            border-left: 2rem;
+            border-right: 2rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            border-radius: 30px;
+            justify-content: space-between;
+            background-color: #fffbeea9;
+        }
+        .containertitle {
+            display: flex;
+        }
+        .containertitleitem {
+            margin-right: 2rem;
+        }
+        .containermain {
+            display: flex;
+            justify-content: space-around;
+            font-size: large;
+        }
+        .containermainimg{
+            width: 25rem;
+            min-width: 25rem;
+            height: auto;
+            margin-right: 2rem;
+        }
+        .introduction {
+            width: 14rem;
+            min-width: 14rem;
+            margin-right: 2rem;
+        }
+        .staff {
+            width: 20rem;
+            min-width: 20rem;
+            margin-right: 2rem;
+        }
+        .containerfooter {
+            margin-right: 3rem;
+        }
+
+
+
+
+
+        /* 底部 */
+        .footer-wrapper {
+            display: flex;
+            justify-content:center;
+            width: 100vw;
+        }
+
+        
+        #totop {
+            position: fixed;
+            left: 92%;
+            bottom: 15%;
+            min-width: 2rem;
+            min-height: 2rem;
+            padding: 0.4rem;
+            background-color: #ffffffaa;
+            border-radius: 15px;
+        }
+
+
+
+
+        /* 文字超链接不画线 */
+        a {
+	        text-decoration: none;
+            transition-duration: 0.2s;
+	    }
+		a:link {
+			color:black;
+			text-decoration:none;
+		}
+		a:visited {
+			color:black;
+			text-decoration:none;
+		}
+		a:hover {
+			color:#de9400;
+			text-decoration:none;
+		}
+		a:active {
+			color:#de5900;
+			text-decoration:none;
+		}
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- 顶部导航栏 -->
+        <nav class="header-wrapper">
+            <div class="ltitle">
+                <a href="../index.html" class="logo">
+                    <img src="../img/icon.jpg" id="title_icon" >
+                    <p>曹主能的观测站</p>
+                </a>
+            </div>
+            <div class="bingsearch">
+            <form method="get" action="https://www.bing.com/search">
+                <input type="text" id="search_input" name="q" placeholder="在Bing中搜索">
+                <button type="submit"  id="search_submit">🍳</button>
+            </form>
+            </div>
+            <ul class="rtitle">
+                <li class="title_option">
+                    <a href="./guochuang.html">国创</a>
+                </li>
+                <li class="title_option">
+                    <a href="./anime.html">番剧</a>
+                </li>
+                <li class="title_option">
+                    <a href="./manga.html">漫画</a>
+                </li>
+                <li class="title_option">
+                    <a href="./game.html">游戏</a> 
+                </li>
+                <li class="title_option">
+                    <a href="./baogao.html">报告</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            <p id="top"> </p>
+            <div class="container">
+                <header>
+                    <a href="https://www.bilibili.com/bangumi/media/md5761" target="_blank" class="containertitle"><h1 class="containertitleitem">ポケットモンスター</h1><h1>宝可梦</h1> </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.bilibili.com/bangumi/media/md5761" target="_blank">
+                        <img src="../img/anime/Pokémon.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：《精灵宝可梦》动画改编自同名游戏，讲述了立志成为宝可梦大师的小智和皮卡丘结伴旅行的故事。一路上，小智邂逅了不少同伴、劲敌、好友，和他们展开了一次又一次冒险。《精灵宝可梦 无印》共分为关都地区石英联盟、橘子群岛橘子联盟、城都地区城都联盟三个部分，因本作品无副标题，故又称为"无印"篇。
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        原案：田尻智<br>
+                        总监：石原恒和<br>
+                        辅助制作人：吉川兆二<br>
+                        动画监修：小田部羊一<br>
+                        企画：岩田圭介 / 川口孝司 / 久保雅一<br>
+                        总监督：湯山邦彦<br>
+                        监督：日高政光<br>
+                        系列构成：首藤剛志<br>
+                        设定协力：陣内弘之 / 川村久仁美 / 野本岳志
+                        角色原案：杉森建 / 藤原基史 / 森本茂樹 / 西田敦子→にしだあつこ / 吉田宏信 / 斎藤むねお / 太田敏 / 吉川玲奈<br>
+                        角色设计：一石小百合<br>
+                        总作画监督：山田俊也<br>
+                        总作画监督辅助：小菅和久<br>
+                        美术监督：金村勝義<br>
+                        色彩设计：吉野記通 / 大関たつ枝<br>
+                        摄影监督：池上元秋 / 白井久男<br>
+                        编集：辺見俊夫 / 伊藤裕<br>
+                        音响监督：三間雅文<br>
+                        音乐：宮崎慎二<br>
+                        制作人：村瀬由美→岩田圭介→岩田牧子→松山進 / 柳沢隆行→深澤幹彦 / 盛武源<br>
+                        动画制作人：神田修吉<br>
+                        动画制作：OLM TEAM OTA<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>遇见你真是太好了！</h3>
+                </footer>
+              </div>
+
+
+
+              <div class="container">
+                <header>
+                    <a href="https://www.bilibili.com/bangumi/media/md28222083" target="_blank" class="containertitle">
+                        <h1 class="containertitleitem">いぬやしゃ</h1>
+                        <h1>犬夜叉</h1> 
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.bilibili.com/bangumi/media/md28222083" target="_blank">
+                        <img src="../img/anime/Inuyasha.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：《犬夜叉》是根据日本漫画家高桥留美子所著同名作品改编的电视动画，故事讲述半妖少年——犬夜叉和穿越时空的少女——日暮戈薇，以及法师弥勒、驱魔师珊瑚、叉尾妖猫云母、小狐妖七宝一同对抗死敌奈落，并四处寻找四魂之玉碎片的冒险经历。
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        原作：高桥留美子
+                        制作统括：小石川伸哉（ytv） 都筑伸一郎（小学馆） 吉井孝幸（SUNRISE）<br>
+                        企画：诹访道彦（ytv） 藤森匠（小学馆） 植田益朗→宫河恭夫（SUNRISE）<br>
+                        管理人：新井利幸、袖崎友和、横田清<br>
+                        原案协助：三上信一、村上正直、熊谷崇（小学馆「少年Sunday周刊」编辑部）<br>
+                        企画协助：下山明子<br>
+                        系列构成：隅泽克之<br>
+                        人物设计：菱沼义仁<br>
+                        妖魔设计：沙仓拓实<br>
+                        美术监督：池田繁美<br>
+                        色彩设计：佐藤美由纪<br>
+                        摄影监督：伊藤久美子、大神洋一<br>
+                        编集：鹤渊友彰<br>
+                        音乐：和田薰<br>
+                        音响监督：鹤冈阳太<br>
+                        主要制作人：诹访道彦（ytv）、富冈秀行（SUNRISE）<br>
+                        制作人：斋藤朋之（ytv） 佐藤弘幸（SUNRISE）<br>
+                        监督：池田成→青木康直<br>
+                        制作：读卖电视台、SUNRISE舞台设定<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>应该被历史记住的番~无论是BGM再到人物的刻画，性格的体现，剧情的推动~都应该载入历史的长河里永流传承~</h3>
+                </footer>
+              </div>
+
+
+
+              <div class="container">
+                <header>
+                    <a href="https://www.bilibili.com/bangumi/media/md28339735" target="_blank" class="containertitle">
+                        <h1 class="containertitleitem">ぼっち・ざ・ろっく！</h1>
+                        <h1>孤独摇滚！</h1> 
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.bilibili.com/bangumi/media/md28339735" target="_blank">
+                        <img src="../img/anime/BOCCHI THE ROCK!.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：绰号“小孤独”的后藤独，是一个喜爱吉他的孤独少女。经常在家里独自弹奏吉他，但因为一些事情，加入了伊地知虹夏领衔的“纽带乐队”。不敢在他人面前演奏的后藤，能否成为一个出色的乐队成员呢……
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        原作：滨路晶（芳文社《Manga Time Kirara MAX》连载中）<br>
+                        导演：斋藤圭一郎<br>
+                        剧本统筹、编剧：吉田惠里香<br>
+                        角色设计、总作画导演：陆田青享<br>
+                        副导演：山本裕介<br>
+                        演唱会导演：川上雄介<br>
+                        演唱会画师：伊藤优希<br>
+                        小道具设计：永木步实<br>
+                        2D素材设计：梅木葵<br>
+                        色彩设计：横田明日香<br>
+                        美术导演：守安靖尚<br>
+                        美术设计：taracod<br>
+                        摄影导演：金森翼<br>
+                        CG导演：宫地克明<br>
+                        演唱会CG导演：内田博明<br>
+                        剪辑：平木大辅<br>
+                        音乐：菊谷知树<br>
+                        音响导演：藤田亚纪子<br>
+                        音响效果：八十正太<br>
+                        制作：CloverWorks<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>孤独摇滚为什么是神，首先我忘了，其次我忘了，最后我忘了，波门</h3>
+                </footer>
+              </div>
+
+              <div class="container">
+                <header>
+                    <a href="https://www.bilibili.com/bangumi/media/md28230043" target="_blank" class="containertitle">
+                        <h1 class="containertitleitem">メイドインアビス</h1>
+                        <h1>来自深渊</h1> 
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.bilibili.com/bangumi/media/md28230043" target="_blank">
+                        <img src="../img/anime/Made in Abyss.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：在每一个角落都被探索完毕的世界中，唯一残留的秘境——大洞穴“深渊”。不知道延续到何方，深不见底的巨大纵向洞穴，栖息着奇妙奇怪的生物们，沉眠着现在的人类无法制造的贵重遗物。“深渊”那充满了不可思议的姿态吸引了人们，并驱使人们展开冒险。如此，多次挑战大洞穴的冒险者们，陆续得到了“探窟家”的名号。住在建造于深渊边缘的城镇“奥斯”的孤儿莉可，梦想着有朝一日成为母亲那样伟大的探窟家，并解开深渊的谜团。这样的某一天，莉可在探索深渊的途中，捡到了有着少年样貌的机器人……？
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        原作: つくしあきひと<br>
+                        导演: 小岛正幸<br>
+                        脚本: 仓田英之、小柳啓伍<br>
+                        音乐: Kevin Penkin<br>
+                        人物设定: 黄瀬和哉<br>
+                        系列构成: 仓田英之<br>
+                        美术监督: 増山修<br>
+                        色彩设计: 山下宫绪<br>
+                        音响监督: 山田阳<br>
+                        动画制作: KINEMA CITRUS<br>
+                        副导演: 垪和等（副监督）、饭野慎也（助监督）<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>“让我的灵魂再次回到你的身边”</h3>
+                </footer>
+              </div>
+
+              <div class="container">
+                <header>
+                    <a href="https://www.bilibili.com/bangumi/media/md184" target="_blank" class="containertitle">
+                        <h1 class="containertitleitem">ノーゲーム･ノーライフ</h1>
+                        <h1>NO GAME NO LIFE 游戏人生</h1> 
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.bilibili.com/bangumi/media/md184" target="_blank">
+                        <img src="../img/anime/NO GAME NO LIFE.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：在每一个角落都被探索完毕的世界中，唯一残留的秘境——大洞穴“深渊”。不知道延续到何方，深不见底的巨大纵向洞穴，栖息着奇妙奇怪的生物们，沉眠着现在的人类无法制造的贵重遗物。“深渊”那充满了不可思议的姿态吸引了人们，并驱使人们展开冒险。如此，多次挑战大洞穴的冒险者们，陆续得到了“探窟家”的名号。住在建造于深渊边缘的城镇“奥斯”的孤儿莉可，梦想着有朝一日成为母亲那样伟大的探窟家，并解开深渊的谜团。这样的某一天，莉可在探索深渊的途中，捡到了有着少年样貌的机器人……？
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        原作：榎宮祐<br>
+                        监督：いしづかあつこ<br>
+                        脚本：榎宮祐、あおしまたかし、下山健人、花田十輝<br>
+                        分镜：佐山聖子、浅香守生、細川秀樹、渡邉こと乃、いしづかあつこ<br>
+                        演出：浅香守生、池端隆史、細川秀樹、渡邉こと乃、いしづかあつこ、佐々木純人<br>
+                        人物原案：榎宮祐<br>
+                        人物设定：大舘康二<br>
+                        系列构成：花田十輝<br>
+                        美术监督：岩瀬栄治<br>
+                        色彩设计：大野春恵<br>
+                        总作画监督：大舘康二<br>
+                        作画监督：牙威格斗、小関雅、大舘康二、濱田邦彦、日向正樹<br>
+                        音乐：佐宗綾子、細江慎治、SuperSweep<br>
+                        音响监督：明田川仁<br>
+                        摄影监督：藤田賢治<br>
+                        动画制作：MADHOUSE<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>日本先灭亡还是第二季先出？</h3>
+                </footer>
+              </div>
+
+              <div class="container">
+                <header>
+                    <a href="https://www.bilibili.com/bangumi/media/md28224120" target="_blank" class="containertitle">
+                        <h1 class="containertitleitem">地縛少年花子くん</h1>
+                        <h1>地缚少年花子君</h1> 
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.bilibili.com/bangumi/media/md28224120" target="_blank">
+                        <img src="../img/anime/地縛少年花子くん.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：海鸥学园的奇妙传言之一。据说旧校舍三层女厕所的第三间里的同学，会实现前来拜访者的愿望。非常喜欢巫术等超自然现象的少女八寻宁宁为了实现自己的愿望，将之托付给了学园怪谈……
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        原作：あいだいろ（掲载 月刊「Gファンタジー」スクウェア・エニックス刊）<br>
+                        监督：安藤正臣<br>
+                        系列构成・脚本：中西やすひろ<br>
+                        角色设计・总作画监督：伊藤麻由加<br>
+                        动画制作人：比嘉勇二<br>
+                        助监督：仁昌寺义人<br>
+                        美术监督：栗林大贵（KUSANAGI）<br>
+                        色彩设计：多田早希<br>
+                        撮影监督：酒井淳子（MAD BOX）<br>
+                        音响监督：饭田里树<br>
+                        音响制作：HALF H・P STUDIO<br>
+                        音乐：高木洋<br>
+                        音乐制作：ポニーキャニオン<br>
+                        动画制作：Lerche<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>“我一个大男人，晚上在被窝姨母笑，笑得跟蛆一样。”</h3>
+                </footer>
+              </div>
+
+
+
+        <div id="totop">
+            <a href="#top" id="totopbtn">返回<br>顶部</a>
+        </div>
+
+        
+        <!-- 底部导航栏 -->
+        <div class="footer-wrapper">
+            <div>©2023 曹主能</div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        (function () {
+            var a_idx = 0;
+            window.onclick = function (event) {
+                var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤",
+                    "❤敬业❤", "❤诚信❤", "❤友善❤");
+ 
+                var heart = document.createElement("b"); //创建b元素
+                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+ 
+                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                a_idx = (a_idx + 1) % a.length;
+                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+ 
+                var f = 16, // 字体大小
+                    x = event.clientX - f / 2, // 横坐标
+                    y = event.clientY - f, // 纵坐标
+                    c = randomColor(), // 随机颜色
+                    a = 1, // 透明度
+                    s = 1.2; // 放大缩小
+ 
+                var timer = setInterval(function () { //添加定时器
+                    if (a <= 0) {
+                        document.body.removeChild(heart);
+                        clearInterval(timer);
+                    } else {
+                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                            s + ");";
+ 
+                        y--;
+                        a -= 0.016;
+                        s += 0.002;
+                    }
+                }, 15)
+ 
+            }
+            // 随机颜色
+            function randomColor() {
+ 
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+ 
+            }
+        }());
+    </script>
+</body>
+</html>

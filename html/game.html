@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/icon.jpg" sizes="16x16">
+    <title>游戏观测站</title>
+    <style>
+
+        body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:scroll;
+
+        }
+
+        @media screen and (min-width: 1024px) {
+            body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:hidden;
+            }
+        }
+
+        body {
+            background-color: #1c326b;
+            height: 100%;
+            background-image: url("../img/game.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover ;
+        }
+        #top {
+            padding-top: 6rem;
+        }
+        .wrapper {
+            display: table;
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+
+
+
+
+
+        /* 顶部导航栏 */
+        .header-wrapper {
+            display: flex;
+            justify-content:space-between;
+            width: 100vw;
+            position: fixed;
+        }
+        /* 左上的标题 */
+        .ltitle {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 20vw;
+            
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #3b5083be;
+            width: 13vw;
+            border-radius: 10px;
+        }
+        #title_icon {
+            display: flex;
+            align-items: center;
+            width: 3vw;
+            height: 3vw;
+            border-radius: 30px;
+        }
+        /* bing搜索框 */
+        .bingsearch {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            width: 40vw;
+        }
+        #search_input {
+            background-color: #3b5083be;
+            border: none;
+            border-radius: 10px;
+            width: 30vw;
+            height: 2rem;
+        }
+        /* 搜索按钮 */
+        #search_submit {
+            color: #000000;
+            background-color: #3b5083be;
+            border: none;
+            width: 2rem;
+            height: 2rem;
+            transition-duration: 0.2s;
+            border-radius: 10px;
+        }
+        #search_submit:hover {
+            background-color: #25335b;
+        }
+
+        /* 右上的导航栏 */
+        .rtitle {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            list-style-type: none;
+            width: 40vw;
+            margin: none;
+            background-color: #3b5083be;
+            border-radius: 7px;
+            margin-right: 2.5rem;
+        }
+        /* 右上的导航栏的选项 */
+        .title_option {
+            padding: 1rem;
+            text-align: center;
+            transition: flex;
+            margin: none;
+            transition-duration: 0.5s;
+            flex-grow: 1
+        }   
+        /* 右上的导航栏的选项鼠标悬停时 */
+        .title_option:hover {
+            cursor: pointer;
+            border-bottom: solid 3px #4c65ab;
+            flex-grow: 2;
+        }
+
+                /* 中部内容 */
+                .content-wrapper {
+            display: grid;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .container {
+            min-height: 20vh;
+            width: 79vw;
+            min-width: 950px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            border-left: 2rem;
+            border-right: 2rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            border-radius: 30px;
+            justify-content: space-between;
+            background-color: #252744ab;
+        }
+        .containermain {
+            display: flex;
+            justify-content: space-around;
+            font-size: large;
+        }
+        .containermainimg{
+            width: 20rem;
+            min-width: 20rem;
+            height: auto;
+            margin-right: 2rem;
+        }
+        .introduction {
+            width: 45%;
+            min-width: 18rem;
+            margin-right: 2rem;
+            color:#e1f9ff;
+        }
+
+        .performance {
+            width: 30%;
+            min-width: 15rem;
+            margin-right: 2rem;
+            color:#e1f9ff;
+        }
+
+
+
+
+
+        /* 底部 */
+        .footer-wrapper {
+            display: flex;
+            justify-content:center;
+            width: 100vw;
+        }
+        #totop {
+            position: fixed;
+            left: 92%;
+            bottom: 15%;
+            min-width: 2rem;
+            min-height: 2rem;
+            padding: 0.4rem;
+            background-color: #44547f96;
+            border-radius: 15px;
+        }
+
+
+
+
+        /* 文字超链接不画线 */
+        a {
+	        text-decoration: none;
+            transition-duration: 0.2s;
+	    }
+		a:link {
+			color:#e1f9ff;
+			text-decoration:none;
+		}
+		a:visited {
+			color:#e1f9ff;
+			text-decoration:none;
+		}
+		a:hover {
+			color:#4c65ab;
+			text-decoration:none;
+		}
+		a:active {
+			color:#4c65ab;
+			text-decoration:none;
+		}
+
+        
+
+    </style>
+</head>
+
+
+
+<body>
+    <div class="wrapper">
+        <!-- 顶部导航栏 -->
+        <nav class="header-wrapper">
+            <div class="ltitle">
+                <a href="../index.html" class="logo">
+                    <img src="../img/icon.jpg" id="title_icon" >
+                    <p style="color: #ffffff;">曹主能的观测站</p>
+                </a>
+            </div>
+            <div class="bingsearch">
+            <form method="get" action="https://www.bing.com/search">
+                <input type="text" id="search_input" name="q" placeholder="在Bing中搜索">
+                <button type="submit"  id="search_submit">🍳</button>
+            </form>
+            </div>
+            <ul class="rtitle">
+                <li class="title_option">
+                    <a href="./guochuang.html">国创</a>
+                </li>
+                <li class="title_option">
+                    <a href="./anime.html">番剧</a>
+                </li>
+                <li class="title_option">
+                    <a href="./manga.html">漫画</a>
+                </li>
+                <li class="title_option">
+                    <a href="./game.html">游戏</a> 
+                </li>
+                <li class="title_option">
+                    <a href="./baogao.html">报告</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            <p id="top"> </p>
+
+            <div class="container">
+                <header>
+                    <a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/" target="_blank"><h1>Counter-Strike: Global Offensive</h1></a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/" target="_blank">
+                        <img src="../img/game/Counter-Strike Global Offensive.jpg" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        《反恐精英：全球攻势》（CS: GO）延续了 1999 年原作在团队竞技类游戏上取得的成就。 CS: GO 的特色包含全新的地图、人物、武器、全新的游戏模式，并提供翻新后的 CS 经典内容（de_dust2 等）。<br>
+                        “《反恐精英》这个模组于 1999 年 8月推出时，立刻成了世界上玩家数量最多的线上 PC 动作游戏，使得游戏业为之一惊。”Valve 的 Doug Lombardi 如是说道。“在过去的 12 年中，它一直是世界上拥有玩家数量最多的游戏之一，引领着竞技游戏赛事，并且在全球创下了超过 2500 万套的游戏销量。CS: GO 承诺将增强屡获殊荣的 CS 系列之游戏体验，并把它带给 PC 平台、次世代主机平台和 Mac 平台的玩家。”
+                    </p>
+                    <p class="performance">
+                        最低配置:<br>
+                        操作系统: Windows® 7/Vista/XP 或更新版本<br>
+                        处理器: 英特尔® 酷睿™2 双核处理器 E6600 或超威羿龙™ X3 8750 以上<br>
+                        内存: 2 GB RAM<br>
+                        显卡: 显卡须为 256 MB 以上，且应兼容 DirectX 9 并支持 Pixel Shader 3.0<br>
+                        DirectX 版本: 9.0c<br>
+                        存储空间: 需要 15 GB 可用空间<br>
+                    </p>
+                </div>
+              </div>
+
+              <div class="container">
+                <header>
+                    <a href="https://www.xbox.com/zh-cn/games/store/%E7%B2%BE%E7%81%B5%E4%B8%8E%E8%90%A4%E7%81%AB%E6%84%8F%E5%BF%97/9n8cd0xzklp4" target="_blank">
+                        <h1>Ori and the Will of the Wisps</h1></a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.xbox.com/zh-cn/games/store/%E7%B2%BE%E7%81%B5%E4%B8%8E%E8%90%A4%E7%81%AB%E6%84%8F%E5%BF%97/9n8cd0xzklp4" target="_blank">
+                        <img src="../img/game/Ori and the Will of the Wisps.jpg" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        小精灵奥里对危险并不陌生，但当小猫头鹰库在宿命般的一次飞翔中受到了伤害，重聚家庭、重塑破碎的世界和探索奥里真正的命运就不能只靠勇气。本作是广受好评的动作类平台游戏《精灵与森林》的续篇，由原班制作团队倾心打造。在这个敌友并存的美丽世界中，您将在欣赏令人惊艳的手绘画面的同时，踏上刺激的冒险之旅。除了契合游戏的原创音乐之外，《精灵与萤火意志》也延续了 Moon Studios 的风格：精心制作的平台动作游戏和深情的叙事手法。
+                        <br>
+                        享受手工打造的沉浸式叙事体验。<br>
+                        • 美轮美奂的世界：在 Xbox Series X、Xbox One X 和 Windows 10 上探索广袤而美丽的奇异世界，享受 4K HDR 视觉盛宴。<br>
+                        • 扣人心弦的故事：在动人的原声音乐陪伴下，在这个手工打造、故事驱动的冒险中，找寻奥里的真正命运。<br>
+
+                        掌握独特的技能。<br>
+                        • 战斗系统：使用精灵武器、法术和技能，为奥里的世界提供新的动态战斗机制。<br>
+                        • 碎片系统：使用奥里的能力，定制您的游戏风格。<br>
+
+                        直面史诗级的敌人和充满挑战的谜题。<br>
+                        • 传奇的头目：对抗强大的敌人，踏上惊险的逃生之路。<br>
+                        • 丰富的角色系统：寻求各种角色的帮助，揭开奥里神秘的命运。<br>
+
+                        体验刺激的模式。<br>
+                        • 精灵试炼：在贯穿游戏的精彩速通挑战中，与排行榜中的诸多强手一争高下。<br>
+                        • 精灵圣殿：在限时试炼中迎战越来越强大的敌人，收集缤纷奖励。<br>
+                    </p>
+                    <p class="performance">
+                        最低配置:<br>
+                        操作系统: Windows 10 Version 18362.0 or higher<br>
+                        处理器: AMD Athlon X4 | Intel Core i5 4460<br>
+                        内存: 8 GB RAM<br>
+                        显卡: Nvidia GTX 950 | AMD R7 370<br>
+                        DirectX 版本: 11<br>
+                        存储空间: 需要 20 GB 可用空间<br><br>
+                        推荐配置:<br>
+                        操作系统: Windows 10 Version 18362.0 or higher<br>
+                        处理器: AMD Ryzen 3 | Intel i5 Skylake<br>
+                        内存: 8 GB RAM<br>
+                        显卡: Nvidia GTX 970 | AMD RX 570<br>
+                        DirectX 版本: 11<br>
+                        存储空间: 需要 20 GB 可用空间<br>
+                    </p>
+                </div>
+              </div>
+
+              <div class="container">
+                <header>
+                    <a href="https://store.steampowered.com/app/774171/Muse_Dash/" target="_blank">
+                        <h1>Muse Dash</h1>
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://store.steampowered.com/app/774171/Muse_Dash/" target="_blank">
+                        <img src="../img/game/Muse Dash.jpg" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        『当战斗与演奏间的屏障被打破』<br>
+                        『你可否听到来自另一个世界的呼唤？』<br>
+                        【 Game Starts Now!! —— 】<br><br>
+
+                        你喜欢可爱的美少女角色？<br>
+                        还是节奏感十足的音乐？<br>
+                        如果有一个地方可以同时满足这两个愿望……<br>
+                        那就是狂拽跑酷和传统音游结合的世界 ★★★ —— 《 Muse Dash 》!!<br><br>
+
+                        什么？！手残？没有关系！<br>
+                        谁说音游只有照着节奏打才是强者，<br>
+                        打不过就躲亦是一种制胜之道（？）<br>
+                        只要你有 100% 的热情、勇气以及……对美少女的爱～<br>
+                        音乐也好战斗也好都是小问题啦ヾ(❛ᴗ˂ )♥<br><br>
+                        【游戏玩法】<br>
+                        跟随音乐节奏击退空中和地面而来的敌人们吧，别忘了还要躲避障碍物哦！！<br>
+                        真是个上手容易、操作简单的音游呀 (`・ω・´)b<br>
+                        【游戏特性】<br>
+                        音乐游戏与跑酷游戏，两种玩法的完美结合 ♡<br>
+                        可爱又时尚的美术风格，配合曲风精心设计了不同的场景、敌人和 boss（只要可爱即使是 boss 也没问题？）<br>
+                        基础包内含 62 首歌曲，今后也会持续更新！购买计划通可直接承包未来所有付费内容 w<br>
+                        丰富的曲库和适合不同水平玩家的难度划分让你可以一直玩下去，从入门到大触～<br>
+                        性格各异的角色、精美的动画+配音，相信这里一定有能让你爱上的角色 (σﾟ∀ﾟ)σ    <br>                      
+                    </p>
+                    <p class="performance">
+                        最低配置:<br>
+                        操作系统: Windows 7 64bit or later<br>
+                        处理器: Intel Core™ Duo or faster<br>
+                        内存: 2 GB RAM<br>
+                        显卡: DirectX® 9 Compatible Graphics Card<br>
+                        存储空间: 需要 2 GB 可用空间<br>
+                    </p>
+                </div>
+              </div>
+
+              <div class="container">
+                <header>
+                    <a href="https://www.xbox.com/zh-CN/games/store/4/9PNJXVCVWD4K/0010" target="_blank">
+                        <h1>极限竞速：地平线 4</h1>
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.xbox.com/zh-CN/games/store/4/9PNJXVCVWD4K/0010" target="_blank">
+                        <img src="../img/game/FORZA HORIZON 4.jpg" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        在世界上最盛大的汽车嘉年华上，不断变化的赛季改变着一切。单枪匹马或者与其他人组队，在一个共享开放世界中探索美丽而富有历史气息的英国。收集、改装和驾驶超过 450 辆车辆。尽情竞速、表演特技、创造和探索：选择您专属的方式来成为地平线中的超级巨星。<br>
+                        收集超过 450 辆车辆<br>
+                        尽情享受包含超过 100 个授权车厂的最庞大和最多元化地平线车辆名单。<br>
+                        尽情竞速、表演特技、创造和探索。<br>
+                        在全新开放式剧情中，您做的任何事情都能推进您的游戏进度。<br>
+                        探索开放世界<br>
+                        现实玩家将遍布在您的世界中。所有游戏玩家都能在同一时间体验时间、天气和四季的变化。<br>
+                        探索美丽而富有历史气息的英国<br>
+                        体验您从未见过的英国。在壮丽的原生 4K 和 HDR 中探索湖泊、山谷、城堡和美不胜收的风景。<br>
+                    </p>
+                    <p class="performance">
+                        最低配置:<br>
+                        需要 64 位处理器和操作系统<br>
+                        操作系统: Windows 10 version 15063.0 or higher<br>
+                        处理器: Intel i3-4170 @ 3.7Ghz OR Intel i5 750 @ 2.67Ghz<br>
+                        内存: 8 GB RAM<br>
+                        显卡: NVidia 650TI OR AMD R7 250x<br>
+                        DirectX 版本: 12<br>
+                        网络: 宽带互联网连接<br>
+                        存储空间: 需要 80 GB 可用空间<br><br>
+                        推荐配置:<br>
+                        需要 64 位处理器和操作系统<br>
+                        操作系统: Windows 10 version 15063.0 or higher<br>
+                        处理器: Intel i7-3820 @ 3.6Ghz<br>
+                        内存: 12 GB RAM<br>
+                        显卡: NVidia GTX 970 OR NVidia GTX 1060 3GB OR AMD R9 290x OR AMD RX 470<br>
+                        DirectX 版本: 12<br>
+                        网络: 宽带互联网连接<br>
+                        存储空间: 需要 100 GB 可用空间<br>
+                    </p>
+                </div>
+              </div>
+
+              <div class="container">
+                <header>
+                    <a href="https://store.steampowered.com/app/1426210/" target="_blank">
+                        <h1>It Takes Two</h1>
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://store.steampowered.com/app/1426210/" target="_blank">
+                        <img src="../img/game/It Takes Two.jpg" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        游玩《双人成行》，踏上生命中最疯狂的旅程，这是一款别开生面的平台冒险游戏，完全为合作模式而设计。利用好友通行证*邀请一位好友免费游玩，共同体验多种多样的乐趣，享受颠覆性的玩法挑战。扮演相互看不顺眼的科迪和小梅夫妇，这两个人被魔咒变成了玩偶。他们一起被困在一个奇幻世界里，每个角落都隐藏着意想不到的东西，他们不得不一起克服挑战，同时挽救他们破裂的关系。<br>
+
+                        在每个新关卡中，掌握角色独特且与对方息息相关的能力。一定要互相帮助，克服大量出乎意料的障碍，共度搞笑欢乐的时刻。用力踢流氓松鼠毛茸茸的尾巴，绕过一条内裤，在热闹的夜店里开舞会，坐雪橇穿过神奇的雪花玻璃球。一个真挚又搞笑的故事在游戏中徐徐展开，交织成独特的隐喻体验。<br>
+                        
+                        《双人成行》由业界合作游戏领导者且屡获殊荣的工作室 Hazelight 开发。他们即将带您踏上狂野而奇妙的旅程，只有一件事是确定的：二人同心，其利断金。<br>
+                    </p>
+                    <p class="performance">
+                        最低配置:<br>
+                        需要 64 位处理器和操作系统
+                        操作系统: Windows 8.1 64-bit or Windows 10 64-bit<br>
+                        处理器: Intel Core i3-2100T or AMD FX 6100<br>
+                        内存: 8 GB RAM<br>
+                        显卡: Nvidia GeForce GTX 660 or AMD R7 260x<br>
+                        DirectX 版本: 11<br>
+                        网络: 宽带互联网连接<br>
+                        存储空间: 需要 50 GB 可用空间<br><br>
+                        推荐配置:<br>
+                        需要 64 位处理器和操作系统<br>
+                        操作系统: Windows 8.1 64-bit or Windows 10 64-bit<br>
+                        处理器: Intel Core i5 3570K or AMD Ryzen 3 1300x<br>
+                        内存: 16 GB RAM<br>
+                        显卡: Nvidia GeForce GTX 980 or AMD R9 290X<br>
+                        DirectX 版本: 11<br>
+                        网络: 宽带互联网连接<br>
+                        存储空间: 需要 50 GB 可用空间<br>
+                    </p>
+                </div>
+              </div>
+
+              <div class="container">
+                <header>
+                    <a href="https://store.steampowered.com/app/105600/Terraria/" target="_blank">
+                        <h1>Terraria</h1>
+                    </a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://store.steampowered.com/app/105600/Terraria/" target="_blank">
+                        <img src="../img/game/Terraria.jpg" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        挖掘，战斗，探索，建造！在这个动感十足的冒险游戏里没有什么是不可能的。世界是你的画布，地面是你的油漆。<br>
+                        拿起你的工具出发！制造武器和各种各样的敌人作战。前往地下寻找配件，金钱，以及其他有用的东西。收集资源创造你的世界所需要的一切。建造一栋房子，一个堡垒，甚至是一座城堡。人们会搬到那里居住，而或许他们还会卖给你不同的商品来协助你完成旅程。<br>
+                        但要注意，那有很多挑战在等着你……你能完成任务吗？<br>
+                        主要特点：<br>
+                        • 沙盒游戏<br>
+                        • 随机生成的世界<br>
+                        • 免费的内容更新<br>
+                    </p>
+                    <p class="performance">
+                        最低配置:<br>
+                        操作系统：Windows Xp，Vista，7<br>
+                        处理器：1.6 Ghz<br>
+                        内存：512 MB<br>
+                        硬盘所需空间：200 MB<br>
+                        显卡：128 MB 显存，能够运行 Shader Model 1.1<br>
+                        DirectX®：9.0c 或更高<br><br>
+                        推荐配置:<br>
+                        操作系统: Windows 7, 8/8.1, 10<br>
+                        处理器: Dual Core 3.0 Ghz<br>
+                        硬盘所需空间：200 MB<br>
+                        内存: 4 GB<br>
+                        显卡：256 MB 显存，能够运行 Shader Model 2.0+<br>
+                        DirectX®：9.0c 或更高<br>
+                    </p>
+                </div>
+              </div>
+
+
+        </div>
+
+        <div id="totop">
+            <a href="#top" id="totopbtn">返回<br>顶部</a>
+        </div>
+
+        
+        <!-- 底部导航栏 -->
+        <div class="footer-wrapper">
+            <div style="color: #ffffff;">©2023 曹主能</div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        (function () {
+            var a_idx = 0;
+            window.onclick = function (event) {
+                var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤",
+                    "❤敬业❤", "❤诚信❤", "❤友善❤");
+ 
+                var heart = document.createElement("b"); //创建b元素
+                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+ 
+                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                a_idx = (a_idx + 1) % a.length;
+                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+ 
+                var f = 16, // 字体大小
+                    x = event.clientX - f / 2, // 横坐标
+                    y = event.clientY - f, // 纵坐标
+                    c = randomColor(), // 随机颜色
+                    a = 1, // 透明度
+                    s = 1.2; // 放大缩小
+ 
+                var timer = setInterval(function () { //添加定时器
+                    if (a <= 0) {
+                        document.body.removeChild(heart);
+                        clearInterval(timer);
+                    } else {
+                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                            s + ");";
+ 
+                        y--;
+                        a -= 0.016;
+                        s += 0.002;
+                    }
+                }, 15)
+ 
+            }
+            // 随机颜色
+            function randomColor() {
+ 
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+ 
+            }
+        }());
+    </script>
+</body>
+</html>

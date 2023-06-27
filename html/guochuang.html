@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/icon.jpg" sizes="16x16">
+    <title>国创观测站</title>
+    <style>
+
+        body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:scroll;
+
+        }
+
+        @media screen and (min-width: 949px) {
+            body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:hidden;
+            }
+        }
+
+        body {
+            background-color: #e0e0e0;
+            height: 100%;
+            background-image: url("../img/guochuang.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover ;
+        }
+        .wrapper {
+            display: table;
+            width: 100%;
+            min-height: 100%;
+        }
+        #top {
+            padding-top: 6rem;
+        }
+
+
+        /* 顶部导航栏 */
+        .header-wrapper {
+            display: flex;
+            justify-content:space-between;
+            width: 100vw;
+            position: fixed;
+        }
+        /* 左上的标题 */
+        .ltitle {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 20vw;
+            
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #ff8585ce;
+            width: 13vw;
+            border-radius: 10px;
+        }
+        #title_icon {
+            display: flex;
+            align-items: center;
+            width: 3vw;
+            height: 3vw;
+            border-radius: 30px;
+        }
+        /* bing搜索框 */
+        .bingsearch {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            width: 40vw;
+        }
+        #search_input {
+            background-color: #ff8585ce;
+            border: none;
+            border-radius: 10px;
+            width: 30vw;
+            height: 2rem;
+        }
+        /* 搜索按钮 */
+        #search_submit {
+            color: #000000;
+            background-color: #ff8585ce;
+            border: none;
+            width: 2rem;
+            height: 2rem;
+            transition-duration: 0.2s;
+            border-radius: 10px;
+        }
+        #search_submit:hover {
+            background-color: #ff5454ba;
+        }
+
+        /* 右上的导航栏 */
+        .rtitle {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            list-style-type: none;
+            width: 40vw;
+            margin: none;
+            background-color: #ff8585be;
+            border-radius: 7px;
+            margin-right: 2.5rem;
+        }
+        /* 右上的导航栏的选项 */
+        .title_option {
+            padding: 1rem;
+            text-align: center;
+            transition: flex;
+            margin: none;
+            transition-duration: 0.5s;
+            flex-grow: 1
+        }   
+        /* 右上的导航栏的选项鼠标悬停时 */
+        .title_option:hover {
+            cursor: pointer;
+            border-bottom: solid 3px #ff0000;
+            flex-grow: 2;
+        }
+
+
+        
+
+        /* 中部内容 */
+        .content-wrapper {
+            display: grid;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .container {
+            min-height: 20vh;
+            width: 79vw;
+            min-width: 853px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            border-left: 2rem;
+            border-right: 2rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            border-radius: 30px;
+            justify-content: space-between;
+            background-color: #ffeeeedd;
+        }
+        .containermain {
+            display: flex;
+            justify-content: space-around;
+            font-size: large;
+        }
+        .containermainimg{
+            width: 20rem;
+            min-width: 20rem;
+            height: auto;
+            margin-right: 2rem;
+        }
+        .introduction {
+            width: 15rem;
+            min-width: 15rem;
+            margin-right: 2rem;
+        }
+        .staff {
+            min-width: 17rem;
+            margin-right: 2rem;
+        }
+        .containerfooter {
+            margin-right: 3rem;
+        }
+
+
+
+
+
+
+
+        /* 底部 */
+        .footer-wrapper {
+            display: flex;
+            justify-content:center;
+            width: 100vw;
+        }
+        #totop {
+            position: fixed;
+            left: 92%;
+            bottom: 15%;
+            min-width: 2rem;
+            min-height: 2rem;
+            padding: 0.4rem;
+            background-color: #ffffffaa;
+            border-radius: 15px;
+        }
+
+
+
+
+        /* 文字超链接不画线 */
+        a {
+	        text-decoration: none;
+            transition-duration: 0.2s;
+	    }
+		a:link {
+			color:rgb(75, 75, 75);
+			text-decoration:none;
+		}
+		a:visited {
+			color:rgb(75, 75, 75);
+			text-decoration:none;
+		}
+		a:hover {
+			color:#882c2c;
+			text-decoration:none;
+		}
+		a:active {
+			color:#000000;
+			text-decoration:none;
+		}
+
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- 顶部导航栏 -->
+        <nav class="header-wrapper">
+            <div class="ltitle">
+                <a href="../index.html" class="logo">
+                    <img src="../img/icon.jpg" id="title_icon" >
+                    <p>曹主能的观测站</p>
+                </a>
+            </div>
+            <div class="bingsearch">
+            <form method="get" action="https://www.bing.com/search">
+                <input type="text" id="search_input" name="q" placeholder="在Bing中搜索">
+                <button type="submit"  id="search_submit">🍳</button>
+            </form>
+            </div>
+            <ul class="rtitle">
+                <li class="title_option">
+                    <a href="./guochuang.html">国创</a>
+                </li>
+                <li class="title_option">
+                    <a href="./anime.html">番剧</a>
+                </li>
+                <li class="title_option">
+                    <a href="./manga.html">漫画</a>
+                </li>
+                <li class="title_option">
+                    <a href="./game.html">游戏</a> 
+                </li>
+                <li class="title_option">
+                    <a href="./baogao.html">报告</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            <p id="top"> </p>
+
+              <div class="container">
+                <header>
+                    <a href="https://www.bilibili.com/bangumi/media/md1733" target="_blank"><h1>罗小黑战记</h1></a>
+                </header>
+                <div class="containermain">
+                    <a  href="https://www.bilibili.com/bangumi/media/md1733" target="_blank">
+                        <img src="../img/guochuang/The Legend of LUOXIAOHEI.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：猫妖小黑盗取天明珠被谛听发现，被打回原形重伤而逃，在流落街头之时被罗小白带回了家，起名罗小黑。有一天小黑突然变成了人形，告诉小白自己要暂时离开去完成师父交给自己的任务。却在离开之后因为师父交给自己的任务又回到了小白身边，等待着他们的会是什么呢……
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        导演：阿根 栗子 顾杰<br>
+                        编剧：木头<br>
+                        监制：木头 顾杰<br>
+                        制片：芝芝<br>
+                        分镜：小黄 顾杰<br>
+                        作画监督：大爽<br>
+                        美术总监：盲眼<br>
+                        后期总监：凉爽<br>
+                        配音：北斗企鹅<br>
+                        音乐音效：幻想动漫音乐<br>
+                        音乐：薄荷<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>卧槽这打斗！卧槽这音效！卧槽这分镜！卧槽这伏笔！卧槽结束了！</h3>
+                </footer>
+              </div>
+
+              <div class="container">
+                <header>
+                <a href="https://www.bilibili.com/bangumi/media/md28228714" target="_blank"><h1>雾山五行</h1></a>
+                </header>
+                <div class="containermain">
+                    <a href="https://www.bilibili.com/bangumi/media/md28228714" target="_blank">
+                        <img src="../img/guochuang/WuShanWuXing.webp" alt="" class="containermainimg"></a>
+                    <p class="introduction">
+                        简介：上古时期妖兽纵横，一位神秘道人分别授予了阴阳五行的特殊能力给金木水火土五个家族来抵抗妖兽。他们将妖兽驱赶到神隐雾山之中，设立结界。雾山之中另有强大灵力的麒麟兽常常吸引来那些想要提升妖力突破结界的妖兽们，因此自愿被封印于巨阙神盾之中。火行使者闻人翊悬为救其母私自打开了巨阙神盾，小麒麟趁机偷溜出来，妖兽界将掀起一股腥风血雨……
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        出品人：林魂、尚游<br>
+                        制片人：十七<br>
+                        监制：十七<br>
+                        导演：林魂<br>
+                        运营总监：夜雨<br>
+                        编剧：林魂、十七<br>
+                        美术监督、作画监督：林魂<br>
+                        音响监督：郭川<br>
+                        原创音乐：郭川、严世涛<br>
+                        配音导演：藤新<br>
+                        配音统筹：杜小星<br>
+                        对白录音：崔建跃、赵朋飞<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>国漫最强水墨动画，冲冲冲</h3>
+                </footer>
+              </div>
+
+              <div class="container">
+                <header>
+                <a href="https://www.bilibili.com/bangumi/media/md28227527" target="_blank"><h1>大理寺日志</h1></a>
+                </header>
+                <div class="containermain">
+                    <a href="https://www.bilibili.com/bangumi/media/md28227527" target="_blank">
+                        <img src="../img/guochuang/White Cat Legend.webp" alt="" class="containermainimg"></a>
+                    <p class="introduction">
+                        简介：在唐朝武明空统治时期，以主管全国大案要案的大理寺为舞台，讲述大理寺众人，在白猫少卿李饼的带领下，展开各种惊心动魄的破案冒险，向命运反抗，坚守自己内心正义的故事。
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        总导演：槐佳佳<br>
+                        执行制片人：常玉玲、屠向欣、王洁晶、王晓龙<br>
+                        运营总监：夜雨<br>
+                        编剧：边曦 、R·C<br>
+                        美术导演：老王、冯强<br>
+                        总作画监督：任天北、马智泉、管嘉琪<br>
+                        后期总监：郭旭<br>
+                        声音指导：尹杰<br>
+                        原创音乐：杨芮<br>
+                        配音导演：郝祥海<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>喜欢喜欢喜欢喜欢猫猫猫少卿大人</h3>
+                </footer>
+              </div>
+
+              <div class="container">
+                <header>
+                  <a href="https://www.bilibili.com/bangumi/media/md28235401" target="_blank"><h1>中国奇谭</h1></a>
+                </header>
+                <div class="containermain">
+                    <a href="https://www.bilibili.com/bangumi/media/md28235401" target="_blank">
+                        <img src="../img/guochuang/Yao-Chinese Folktales.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：动画短片集《中国奇谭》由八个植根于中国传统文化的独立的故事组成：《小妖怪的夏天》、《鹅鹅鹅》、《林林》、《乡村巴士带走了王孩儿和神仙》、《小满》、《飞鸟与鱼》、《小卖部》、《玉兔》。故事纵览古今、展望未来，从乡土眷恋到科技幻想、从生命母题到人性思考，展现着中式想象力、承载着中国民族文化与哲学。
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        出品人：速达 李旎<br>
+                        总制片人：李早 张圣晏<br>
+                        总监制：速达 朱贝宁<br>
+                        总导演：陈廖宇<br>
+                        制片人：崔威 朱勤 陈卿 尹一诺 姚杰明<br>
+                        顾问：常光希 周克勤 凌纾 贡建英 姚光华<br>
+                        联合监制：陈波 张诗韵 陈晓璐<br>
+                        分片导演：於水 胡睿 杨木 刘毛宁 陈莲华 周小琳 潘斌 顾杨 刘旷 徐宁<br>
+                        编剧：於水 胡睿 杨木 刘毛宁 陈莲华 周小琳 潘斌 顾杨 刘旷 魏诗芮<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>就像小时候的寓言故事一样，有的蕴含哲理，有的贴近生活，有的唤醒回忆</h3>
+                </footer>
+              </div>
+
+              <div class="container">
+                <header>
+                  <a href="https://www.bilibili.com/bangumi/media/md28230742" target="_blank"><h1>时光代理人</h1></a>
+                </header>
+                <div class="containermain">
+                    <a href="https://www.bilibili.com/bangumi/media/md28230742" target="_blank">
+                        <img src="../img/guochuang/Link Click.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：为了找到一系列罪案的操纵者，程小时求助于肖力，找寻一切藏匿于暗中的蛛丝马迹。但是拥有未知超能力的凶手在阴影之中，也从没有停止过他的阴谋。神秘少年如影随形，身边伙伴接连遇害，程小时屡次身陷险境。随着追查深入，一桩多年前的凶案浮出水面。真相似乎越来越近，然而凶手的身份却让人始料未及。最终的较量即将展开。
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        原作 · 导演：李豪凌<br>
+                        出品人：李旎<br>
+                        总制片人：张圣晏 李豪凌<br>
+                        制片人：康君 唐云康<br>
+                        制片：王舒恬 陈楠 柴翱翔<br>
+                        总作画监督：LAN<br>
+                        人设原案设计：INPLICK<br>
+                        色彩设计：のぼり はるこ<br>
+                        美术监督：朝見知弥 朱立朴<br>
+                        音乐监督：天门<br>
+                        配音导演：阿杰<br>
+                        执行导演：张予夏 陆婉玉<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>朋友：“听说你心脏功能很好，请问有什么方法来证明吗？”我：“我看《时光代理人》”</h3>
+                </footer>
+              </div>
+
+
+
+              <div class="container">
+                <header>
+                  <a href="https://www.bilibili.com/bangumi/media/md6360" target="_blank"><h1>刺客伍六七</h1></a>
+                </header>
+                <div class="containermain">
+                    <a href="https://www.bilibili.com/bangumi/media/md6360" target="_blank">
+                        <img src="../img/guochuang/Scissor Seven.webp" alt="" class="containermainimg">
+                    </a>
+                    <p class="introduction">
+                        简介：在某个小岛上，有一个可以伪装成任何东西的廉价刺客，名叫伍六七。平时看上去是个理发师，其实背地里却做着刺客生意。热爱理发事业，喜欢给人剪头发，善用剪刀——剪刀也是他的刺杀武器。由于初入刺客行当，行情十分廉价，因此接到的都是些奇葩的刺杀任务。在执行刺杀任务的过程中，与刺杀对象发生一系列有趣的意外事件。
+                    </p>
+                    <p class="staff">
+                        STAFF<br>
+                        出品人：邹沙沙、何小疯<br>
+                        总制片人：邹沙沙<br>
+                        原著：何小疯<br>
+                        导演：何小疯<br>
+                        制片：赵寒<br>
+                        后期：江惠琴<br>
+                        场景美术：朱毛<br>
+                        原画：侯俊杰，陈嘉傑，黄晓斌，陈世豪<br>
+                        动画：黄平安，陈楚贤，黄智越<br>
+                        角色设计：何小疯 梁昕如<br>
+                    </p>
+                </div>
+                <footer class="containerfooter">
+                  <h3>一个充满武侠，搞笑，多方面元素的一部动画，值得大家一看</h3>
+                </footer>
+              </div>
+
+
+        </div>
+
+        <div id="totop">
+            <a href="#top" id="totopbtn">返回<br>顶部</a>
+        </div>
+        
+        <!-- 底部导航栏 -->
+        <div class="footer-wrapper">
+            <div>©2023 曹主能</div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        (function () {
+            var a_idx = 0;
+            window.onclick = function (event) {
+                var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤",
+                    "❤敬业❤", "❤诚信❤", "❤友善❤");
+ 
+                var heart = document.createElement("b"); //创建b元素
+                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+ 
+                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                a_idx = (a_idx + 1) % a.length;
+                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+ 
+                var f = 16, // 字体大小
+                    x = event.clientX - f / 2, // 横坐标
+                    y = event.clientY - f, // 纵坐标
+                    c = randomColor(), // 随机颜色
+                    a = 1, // 透明度
+                    s = 1.2; // 放大缩小
+ 
+                var timer = setInterval(function () { //添加定时器
+                    if (a <= 0) {
+                        document.body.removeChild(heart);
+                        clearInterval(timer);
+                    } else {
+                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                            s + ");";
+ 
+                        y--;
+                        a -= 0.016;
+                        s += 0.002;
+                    }
+                }, 15)
+ 
+            }
+            // 随机颜色
+            function randomColor() {
+ 
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+ 
+            }
+        }());
+    </script>
+</body>
+</html>

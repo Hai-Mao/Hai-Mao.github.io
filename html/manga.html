@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/icon.jpg" sizes="16x16">
+    <title>漫画观测站</title>
+    <style>
+
+        body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:scroll;
+        }
+        @media screen and (min-width: 550px) {
+            body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:hidden;
+        }
+        }
+
+        body {
+            background-color: #e0e0e0;
+            height: 100%;
+            background-image: url("../img/manga.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover ;
+        }
+
+        .wrapper {
+            display: table;
+            width: 100%;
+            min-height: 100%;
+        }
+        #top {
+            padding-top: 6rem;
+        }
+
+
+
+
+        /* 顶部导航栏 */
+        .header-wrapper {
+            display: flex;
+            justify-content:space-between;
+            width: 100vw;
+            position: fixed;
+        }
+        /* 左上的标题 */
+        .ltitle {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 20vw;
+            
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #d9ffd6a9;
+            width: 13vw;
+            border-radius: 10px;
+        }
+        #title_icon {
+            display: flex;
+            align-items: center;
+            width: 3vw;
+            height: 3vw;
+            border-radius: 30px;
+        }
+        /* bing搜索框 */
+        .bingsearch {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            width: 40vw;
+        }
+        #search_input {
+            background-color: #d9ffd6a9;
+            border: none;
+            border-radius: 10px;
+            width: 30vw;
+            height: 2rem;
+        }
+        /* 搜索按钮 */
+        #search_submit {
+            color: #000000;
+            background-color: #d9ffd6a9;
+            border: none;
+            width: 2rem;
+            height: 2rem;
+            transition-duration: 0.2s;
+            border-radius: 10px;
+        }
+        #search_submit:hover {
+            background-color: #3d974c9f;
+        }
+
+        /* 右上的导航栏 */
+        .rtitle {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            list-style-type: none;
+            width: 40vw;
+            margin: none;
+            background-color: #d9ffd6a9;
+            border-radius: 7px;
+            margin-right: 2.5rem;
+        }
+        /* 右上的导航栏的选项 */
+        .title_option {
+            padding: 1rem;
+            text-align: center;
+            transition: flex;
+            margin: none;
+            transition-duration: 0.5s;
+            flex-grow: 1
+        }   
+        /* 右上的导航栏的选项鼠标悬停时 */
+        .title_option:hover {
+            cursor: pointer;
+            border-bottom: solid 3px #25792d;
+            flex-grow: 2;
+        }
+
+
+
+        /* 中部内容 */
+        .content-wrapper {
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            height: 100%;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-left: 10rem;
+            margin-right: 10rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            background-color: #f6fff1ce;
+            border-radius: 30px;
+            min-width: 20rem;
+        }
+
+
+        @media screen and (min-width: 1024px) {
+            .container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        }
+
+        @media screen and (min-width: 1366px) {
+            .container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        }
+        @media screen and (min-width: 1660px) {
+            .container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        }
+        
+        .containermainimg {
+            width: fit-content;
+            height: fit-content;
+            border-radius: 10px;
+        }
+
+        .item {
+            min-width: 10rem;
+        }
+        .desc {
+            padding: 2rem;
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            align-content: center;
+
+        }
+
+
+
+
+        /* 底部 */
+        .footer-wrapper {
+            display: flex;
+            justify-content:center;
+            width: 100vw;
+        }
+        #totop {
+            position: fixed;
+            left: 92%;
+            bottom: 15%;
+            min-width: 2rem;
+            min-height: 2rem;
+            padding: 0.4rem;
+            background-color: #ffffffaa;
+            border-radius: 15px;
+        }
+
+
+
+
+        /* 文字超链接不画线 */
+        a {
+	        text-decoration: none;
+            transition-duration: 0.2s;
+	    }
+		a:link {
+			color:black;
+			text-decoration:none;
+		}
+		a:visited {
+			color:black;
+			text-decoration:none;
+		}
+		a:hover {
+			color:#52b035;
+			text-decoration:none;
+		}
+		a:active {
+			color:#479d33;
+			text-decoration:none;
+		}
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- 顶部导航栏 -->
+        <nav class="header-wrapper">
+            <div class="ltitle">
+                <a href="../index.html" class="logo">
+                    <img src="../img/icon.jpg" id="title_icon" >
+                    <p>曹主能的观测站</p>
+                </a>
+            </div>
+            <div class="bingsearch">
+            <form method="get" action="https://www.bing.com/search">
+                <input type="text" id="search_input" name="q" placeholder="在Bing中搜索">
+                <button type="submit"  id="search_submit">🍳</button>
+            </form>
+            </div>
+            <ul class="rtitle">
+                <li class="title_option">
+                    <a href="./guochuang.html">国创</a>
+                </li>
+                <li class="title_option">
+                    <a href="./anime.html">番剧</a>
+                </li>
+                <li class="title_option">
+                    <a href="./manga.html">漫画</a>
+                </li>
+                <li class="title_option">
+                    <a href="./game.html">游戏</a> 
+                </li>
+                <li class="title_option">
+                    <a href="./baogao.html">报告</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            <p id="top"> </p>
+            <div class="container">
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc26551" target="_blank" class="desc">
+                        <img src="../img/manga/The Legend of LUOXIAOHEI.jpg" alt="" class="containermainimg">
+                        <h2>罗小黑战记·蓝溪镇
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc27189" target="_blank" class="desc">
+                        <img src="../img/manga/魔入りました！入間くん.jpg" alt="" class="containermainimg">
+                        <h2>入间同学入魔了！
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc24442" target="_blank" class="desc">
+                        <img src="../img/manga/非人哉.jpg" alt="" class="containermainimg">
+                        <h2>非人哉
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc25717" target="_blank" class="desc">
+                        <img src="../img/manga/鬼滅の刃.jpg" alt="" class="containermainimg">
+                        <h2>鬼灭之刃
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc27660" target="_blank" class="desc">
+                        <img src="../img/manga/1031万圣街.png" alt="" class="containermainimg">
+                        <h2>1031万圣街
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc26505" target="_blank" class="desc">
+                        <img src="../img/manga/呪術廻戦.png" alt="" class="containermainimg">
+                        <h2>咒术回战
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc27654" target="_blank" class="desc">
+                        <img src="../img/manga/地縛少年花子くん.jpg" alt="" class="containermainimg">
+                        <h2>地缚少年花子君
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc29329" target="_blank" class="desc">
+                        <img src="../img/manga/有兽焉.jpg" alt="" class="containermainimg">
+                        <h2>有兽焉
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc25125" target="_blank" class="desc">
+                        <img src="../img/manga/ぬらりひょんの孫.jpg" alt="" class="containermainimg">
+                        <h2>滑头鬼之孙
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc27645" target="_blank" class="desc">
+                        <img src="../img/manga/伍六七：黑白双龙.jpg" alt="" class="containermainimg">
+                        <h2>伍六七：黑白双龙
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc25332" target="_blank" class="desc">
+                        <img src="../img/manga/大理寺日志.jpg" alt="" class="containermainimg">
+                        <h2>大理寺日志
+                        </h2>
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a  href="https://manga.bilibili.com/detail/mc30023" target="_blank" class="desc">
+                        <img src="../img/manga/メイドインアビス.jpg" alt="" class="containermainimg">
+                        <h2>来自深渊
+                        </h2>
+                    </a>
+                </div>
+
+              </div>
+        </div>
+
+        <div id="totop">
+            <a href="#top" id="totopbtn">返回<br>顶部</a>
+        </div>
+
+        
+        <!-- 底部导航栏 -->
+        <div class="footer-wrapper">
+            <div>©2023 曹主能</div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        (function () {
+            var a_idx = 0;
+            window.onclick = function (event) {
+                var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤",
+                    "❤敬业❤", "❤诚信❤", "❤友善❤");
+ 
+                var heart = document.createElement("b"); //创建b元素
+                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+ 
+                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                a_idx = (a_idx + 1) % a.length;
+                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+ 
+                var f = 16, // 字体大小
+                    x = event.clientX - f / 2, // 横坐标
+                    y = event.clientY - f, // 纵坐标
+                    c = randomColor(), // 随机颜色
+                    a = 1, // 透明度
+                    s = 1.2; // 放大缩小
+ 
+                var timer = setInterval(function () { //添加定时器
+                    if (a <= 0) {
+                        document.body.removeChild(heart);
+                        clearInterval(timer);
+                    } else {
+                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                            s + ");";
+ 
+                        y--;
+                        a -= 0.016;
+                        s += 0.002;
+                    }
+                }, 15)
+ 
+            }
+            // 随机颜色
+            function randomColor() {
+ 
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+
+            }
+        }());
+    </script>
+</body>
+</html>

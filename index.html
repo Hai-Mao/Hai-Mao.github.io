@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon.jpg" sizes="16x16">
+    <title>观测站主站</title>
+    <style>
+
+        body,html{
+            height: 100%;
+            width:100%;
+            margin:0 0 0 0;
+            overflow-x:hidden;
+        }
+
+        body {
+            background-image: url("./img/main.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size:contain;
+            background-color: #fff5ec;
+            height: 100%;
+        }
+
+
+        .wrapper {
+            display: table;
+            width: 100%;
+            min-height: 100%;
+        }
+        #top {
+            padding-top: 6rem;
+        }
+
+
+        /* 顶部导航栏 */
+        .header-wrapper {
+            display: flex;
+            justify-content:space-between;
+            width: 100vw;
+            position: fixed;
+        }
+
+        /* 左上 */
+        .ltitle {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 20vw;
+            
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #f7e9dd;
+            width: 13vw;
+            border-radius: 10px;
+        }
+        #title_icon {
+            display: flex;
+            align-items: center;
+            width: 3vw;
+            height: 3vw;
+            border-radius: 30px;
+
+        }
+
+
+        /* bing搜索框 */
+        .bingsearch {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            width: 40vw;
+        }
+        #search_input {
+            background-color: #f7e9dd;
+            border: none;
+            border-radius: 10px;
+            width: 30vw;
+            height: 2rem;
+        }
+        /* 搜索按钮 */
+        #search_submit {
+            color: #000000;
+            background-color: #f7e9dd;
+            border: none;
+            width: 2rem;
+            height: 2rem;
+            transition-duration: 0.2s;
+            border-radius: 10px;
+        }
+        #search_submit:hover {
+            background-color: #aadeff;
+        }
+        
+
+        /* 右上的导航栏 */
+        .rtitle {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            list-style-type: none;
+            width: 40vw;
+            margin: none;
+            background-color: #f7e9dd;
+            border-radius: 7px;
+            margin-right: 2.5rem;
+        }
+        /* 右上的导航栏的选项 */
+        .title_option {
+            padding: 1rem;
+            text-align: center;
+            transition: flex;
+            margin: none;
+            transition-duration: 0.5s;
+            flex-grow: 1
+        }   
+        /* 右上的导航栏的选项鼠标悬停时 */
+        .title_option:hover {
+            cursor: pointer;
+            border-bottom: solid 3px #aadeff;
+            flex-grow: 2;
+        }
+
+
+
+        /* 中部内容 */
+        .content-wrapper {
+            display: table-row;
+            height: 100%;
+        }        
+        /* 中间内容部分*/
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-left: 10rem;
+            margin-right: 10rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            background-color: #ffffffaa;
+            border-radius: 30px;
+        }
+        #h1title{
+            margin-top: 1rem;
+            margin-left: 13rem;
+            min-width: 30rem;
+        }
+        .item {
+            min-width: 10rem;
+            opacity: 1;
+        }
+        .desc {
+            padding: 2rem;
+        }
+
+        @media screen and (min-width: 540px) {
+            .container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        }
+
+        @media screen and (min-width: 767px) {
+            .container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        }
+
+
+
+
+        /* 底部导航栏 */
+        .footer-wrapper {
+            display: grid;
+            justify-content:center;
+            justify-items: center;
+            width: 100vw;
+        }
+
+        .endlink {
+            justify-content: center;
+            justify-items: center;
+        }
+        .link1 {
+            display: flex;
+            justify-content: left;
+            justify-items: center;
+            padding: 0;
+            list-style-type: none;
+            width: 70vw;
+            margin: none;
+            background-color: rgba(247, 233, 221, 0);
+        }
+        .option {
+            padding: 0.5rem;
+        }
+        #zhanwailink {
+            border-left: 3px solid #aadeff;
+            padding-left: 0.5rem;
+            margin-left: 1rem;
+        }
+
+
+
+
+        /* 文字超链接不画线 */
+        a {
+	        text-decoration: none;
+            transition-duration: 0.2s;
+	    }
+		a:link {
+			color:black;
+			text-decoration:none;
+		}
+		a:visited {
+			color:black;
+			text-decoration:none;
+		}
+		a:hover {
+			color:#a1c5dc;
+			text-decoration:none;
+		}
+		a:active {
+			color:#78a4c0;
+			text-decoration:none;
+		}
+
+        #totop {
+            position: fixed;
+            left: 92%;
+            bottom: 15%;
+            min-width: 2rem;
+            min-height: 2rem;
+            padding: 0.4rem;
+            background-color: #ffffffaa;
+            border-radius: 15px;
+        }
+
+        .bgm {
+            float:right;
+        }
+
+
+
+
+
+
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- 顶部导航栏 -->
+        <nav class="header-wrapper">
+            <div class="ltitle">
+                <a href="./index.html" class="logo">
+                    <img src="./img/icon.jpg" id="title_icon" >
+                    <p>曹主能的观测站</p>
+                </a>
+            </div>
+            <div class="bingsearch">
+            <form method="get" action="https://www.bing.com/search">
+                <input type="text" id="search_input" name="q" placeholder="在Bing中搜索">
+                <button type="submit"  id="search_submit">🍳</button>
+            </form>
+            </div>
+            <ul class="rtitle">
+                <li class="title_option">
+                    <a href="./html/guochuang.html">国创</a>
+                </li>
+                <li class="title_option">
+                    <a href="./html/anime.html">番剧</a>
+                </li>
+                <li class="title_option">
+                    <a href="./html/manga.html">漫画</a>
+                </li>
+                <li class="title_option">
+                    <a href="./html/game.html">游戏</a> 
+                </li>
+                <li class="title_option">
+                    <a href="./html/baogao.html">报告</a> 
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            <p id="top"> </p>
+            <h1 id="h1title">这里是曹主能的观测站主站</h1>
+            <div class="container">
+                <div class="item">
+                  <div class="desc">
+                    <h2>1</h2>
+                    <p>在这一个观测站内，点击左上角可以返回到这一个页面。
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="desc">
+                    <h2>2</h2>
+                    <p>在页面的顶部，在文本框键入文字后，点击右边的搜索图标，即可在Bing中搜索内容。
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="desc">
+                    <h2>3</h2>
+                    <p>右上方的导航栏中，点击文字即可可以访问到观测站的子站，包括国创、番剧、漫画、游戏等。
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="desc">
+                    <h2>4</h2>
+                    <p>左下方是一些站外链接，点击文字即可调转到对应网站
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="desc">
+                    <h2>5</h2>
+                    <p>右下方是背景音乐的控制控件，可以播放、暂停、调节进度、调节音量和播放速度。
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="desc">
+                    <h2>6</h2>
+                    <p>现在可以开始访问观测站了。<br>完成全部六个步骤，胜利✌
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div id="totop">
+            <a href="#top" id="totopbtn">返回<br>顶部</a>
+        </div>
+
+        <div class="bgm">
+            <audio src="./audio/爵士乐一个小时.m4a" id="bgmplayer" autoplay="autoplay" controls="controls" loop="loop"></audio>
+        </div>
+
+        <div class="endlink">
+            <ul class="link1">
+                <li class="option">
+                    <div id="zhanwailink">站外链接</div>
+                </li>
+                <li class="option">
+                    <a href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a>
+                </li>
+                <li class="option">
+                    <a href="https://manga.bilibili.com/" target="_blank">哔哩哔哩漫画</a>
+                </li>
+                <li class="option">
+                    <a href="https://ac.qq.com/" target="_blank">腾讯动漫</a>
+                </li>
+                <li class="option">
+                    <a href="https://store.steampowered.com/" target="_blank">Steam</a> 
+                </li>
+                <li class="option">
+                    <a href="https://store.epicgames.com/zh-CN" target="_blank">Epic</a> 
+                </li>
+                <li class="option">
+                    <a href="https://www.xbox.com/zh-CN/" target="_blank">Xbox</a> 
+                </li>
+            </ul>
+        </div>
+
+        
+        <!-- 底部 -->
+        <div class="footer-wrapper">
+            <div>联系作者 632107060224@mails.cqjtu.edu.cn</div>
+            <div>©2023 曹主能</div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        // 鼠标点击特效（网上有现成的代码我就拿来用了）
+        (function () {
+            var a_idx = 0;
+            window.onclick = function (event) {
+                var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤",
+                    "❤敬业❤", "❤诚信❤", "❤友善❤");
+ 
+                var heart = document.createElement("b"); //创建b元素
+                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+ 
+                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                a_idx = (a_idx + 1) % a.length;
+                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+ 
+                var f = 16, // 字体大小
+                    x = event.clientX - f / 2, // 横坐标
+                    y = event.clientY - f, // 纵坐标
+                    c = randomColor(), // 随机颜色
+                    a = 1, // 透明度
+                    s = 1.2; // 放大缩小
+ 
+                var timer = setInterval(function () { //添加定时器
+                    if (a <= 0) {
+                        document.body.removeChild(heart);
+                        clearInterval(timer);
+                    } else {
+                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                            s + ");";
+ 
+                        y--;
+                        a -= 0.016;
+                        s += 0.002;
+                    }
+                }, 15)
+ 
+            }
+            // 随机颜色
+            function randomColor() {
+ 
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+ 
+            }
+        }());
+
+    </script>
+</body>
+</html>
